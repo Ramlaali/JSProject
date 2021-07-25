@@ -30,9 +30,13 @@ random.addEventListener('click', ()=>{
 const characterText = document.querySelector('#text');
 const submitBtn = document.querySelector('#submit');
 const resultsTag = document.querySelector('#results');
-const userInput = document.getElementById("text");
 
-submitBtn.addEventListener('click', getQuoteByName(userInput));
+
+
+document.getElementById("submit").addEventListener("click", function() {
+    const userInput = document.getElementById('text').value;
+    getQuoteByName(userInput);
+  });
 
 function getQuoteByName(nameVariable){
     console.log('name', nameVariable)
@@ -40,7 +44,7 @@ function getQuoteByName(nameVariable){
       .then(response => response.json())
       .then(quotes => {
           console.log(quotes)
-          //resultsTag.innerText = quotes.anime;
+          resultsTag.innerText = quotes.anime;
       })
 }
 
