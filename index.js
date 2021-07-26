@@ -47,9 +47,9 @@ function getQuoteByName(nameVariable){
       .then(response => response.json())
       .then(quotes => {
           console.log(quotes)
-            animeResults.innerText = "ANIME: " + quotes.anime;
-            characterResults.innerText = "CHARACTER: " + quotes.character;
-            quoteResults.innerText = "QUOTE: " + quotes.quote;
+            animeResults.innerText = "ANIME: " + quotes[0].anime;
+            characterResults.innerText = "CHARACTER: " + quotes[0].character;
+            quoteResults.innerText = "QUOTE: " + quotes[0].quote;
           
       })
 }
