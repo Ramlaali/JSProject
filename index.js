@@ -1,6 +1,6 @@
+// Random quote generator 
+// Event Listener 1
 
-//Event listener 1.
-// Here I am going to use the random quote generator to generate a quote, seperating it by anime, character and quote
 const URL1 = "https://animechan.vercel.app/api/random"
 
 const randomBtnTag = document.querySelector('.container random');
@@ -29,6 +29,9 @@ function getQuote(){
 random.addEventListener('click', ()=>{
     getQuote();
 })
+
+// User generated Quote.
+// Event listener 2
 
 const characterText = document.querySelector('#text');
 const submitBtn = document.querySelector('#submit');
@@ -60,6 +63,9 @@ document.getElementById("submit").addEventListener("click", function() {
     getQuoteByName(userInput);
   });
 
+
+  //Reload button
+  // Event listener 3
 reload.addEventListener('click', () => {
     location.reload();
 })
