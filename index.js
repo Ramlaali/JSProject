@@ -39,19 +39,26 @@ const resultsContainer = document.querySelector('#results');
 
 
 
-document.getElementById("submit").addEventListener("click", function() {
-    const userInput = document.getElementById('text').value;
-    getQuoteByName(userInput);
-  });
+
 
 function getQuoteByName(nameVariable){
-    console.log(nameVariable)
+    console.log('name', nameVariable)
     fetch(`https://animechan.vercel.app/api/quotes/character?name=${nameVariable}`)
       .then(response => response.json())
       .then(quotes => {
           console.log(quotes)
+            animeResults.innerText =  quotes.anime;
+            characterResults.innerText = quotes.character;
+            quoteResults.innerText = quotes.quote;
+          
       })
 }
+
+
+document.getElementById("submit").addEventListener("click", function() {
+    const userInput = document.getElementById('text').value;
+    getQuoteByName(userInput);
+  });
 
 reload.addEventListener('click', () => {
     location.reload();
