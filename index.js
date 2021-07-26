@@ -42,3 +42,11 @@ const resultsContainer = document.querySelector('#results');
 
 
 
+reload.addEventListener('click', () => {
+    location.reload();
+})
+
+
+
+
+
