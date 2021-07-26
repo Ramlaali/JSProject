@@ -37,7 +37,10 @@ const characterResults = document.querySelector('#character-results');
 const quoteResults = document.querySelector('#quote-results');
 const resultsContainer = document.querySelector('#results');
 
-
+document.getElementById("submit").addEventListener("click", function() {
+    const userInput = document.getElementById('text').value;
+    getQuoteByName(userInput);
+  });
 
 
 
