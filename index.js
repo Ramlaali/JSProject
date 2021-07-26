@@ -1,5 +1,6 @@
 
-
+//Event listener 1.
+// Here I am going to use the random quote generator to generate a quote, seperating it by anime, character and quote
 const URL1 = "https://animechan.vercel.app/api/random"
 
 const randomBtnTag = document.querySelector('.container random');
@@ -15,9 +16,11 @@ function getQuote(){
     })
     .then(response => response.json())
     .then(quote => {
-        animeQuote.innerText = quote.quote;
-        animeName.innerText = quote.anime;
-        characterName.innerText= quote.character;
+        characterName.innerText= "CHARACTER: " + quote.character;
+        animeName.innerText = "ANIME: " + quote.anime;
+        animeQuote.innerText = "QUOTE: " + quote.quote;
+        
+        
         })
 }
 
@@ -29,23 +32,13 @@ random.addEventListener('click', ()=>{
 
 const characterText = document.querySelector('#text');
 const submitBtn = document.querySelector('#submit');
-const resultsTag = document.querySelector('#results');
+const animeResults = document.querySelector('#anime-results');
+const characterResults = document.querySelector('#character-results');
+const quoteResults = document.querySelector('#quote-results');
+const resultsContainer = document.querySelector('#results');
 
 
 
-document.getElementById("submit").addEventListener("click", function() {
-    const userInput = document.getElementById('text').value;
-    getQuoteByName(userInput);
-  });
 
-function getQuoteByName(nameVariable){
-    console.log('name', nameVariable)
-    fetch(`https://animechan.vercel.app/api/quotes/character?name=${nameVariable}`)
-      .then(response => response.json())
-      .then(quotes => {
-          console.log(quotes)
-          resultsTag.innerText = quotes.anime;
-      })
-}
 
 
