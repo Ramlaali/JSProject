@@ -16,13 +16,31 @@ function getQuote(){
     })
     .then(response => response.json())
     .then(quote => {
+        const {character, anime} = quote
+        console.log(character)
         characterName.innerText= "CHARACTER: " + quote.character;
         animeName.innerText = "ANIME: " + quote.anime;
         animeQuote.innerText = "QUOTE: " +quote.quote;
         
-        
-        })
+       
+    });
+
+
 }
+const likeButton = document.createElement("button");
+var count = 0; 
+
+likeButton.type = "submit";
+likeButton.id = "likeButton";
+console.log('children',document.body);
+
+document.body.appendChild(likeButton); 
+likeButton.innerHTML = "Like"
+likeButton.addEventListener("click", () => {
+    count++;
+    //console.log('Hello')
+    likeButton.innerHTML = `Like ${count}`;
+ });
 
 
 
@@ -69,5 +87,6 @@ document.getElementById("submit").addEventListener("click", function() {
 reload.addEventListener('click', () => {
     location.reload();
 })
+
 
 
